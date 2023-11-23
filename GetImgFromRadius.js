@@ -1,5 +1,5 @@
 export function GetImgFromRadius(radius) {
-    const orbTypes = ["Html", "Css", "Js", "TS", "ang", "React", "Java", "net", "Db", "AZ", "ex"];
+    const orbTypes = ["Html", "Css", "Js", "TS", "Ang", "React", "Java", "Net", "Db", "AZ", "Ex"];
     const baseRadius = 20;
     const increment = 12;
     // Calculate the index based on the base radius and increment
