@@ -11,6 +11,8 @@ const app = new PIXI.Application({
 });
 
 let player = null;
+const scoreElement = document.getElementById("score");
+
 const startBtn = document.getElementById("btn-start");
 const inputFeild = document.getElementById("nameInput");
 const startContainer = document.getElementById("startContainer");
@@ -197,7 +199,11 @@ document.getElementsByTagName("canvas")[0].addEventListener("click", (e) => {
 });
 
 function updateScore() {
-  document.getElementById("score").innerHTML = score;
+  scoreElement.textContent = score;
+  scoreElement.classList.add("score-animation");
+  setTimeout(() => {
+    scoreElement.classList.remove("score-animation");
+  }, 1000);
 }
 
 startBtn.addEventListener("click", (e) => {
@@ -240,35 +246,32 @@ function resetGame() {
   }
   isStarted = false;
   setScoreStorage(score, player);
-  setLeaderboard()
-  score = 0; 
-  updateScore(); 
+  setLeaderboard();
+  score = 0;
+  updateScore();
   circles = [];
   startContainer.style.display = "flex";
-  
-  
 }
-
 
 function setScoreStorage(score, name) {
   // set empty array if no score exists
-  if(localStorage.getItem("score") === null) {
+  if (localStorage.getItem("score") === null) {
     localStorage.setItem("score", JSON.stringify([]));
   }
 
   // get current scores
   const currentScores = JSON.parse(localStorage.getItem("score"));
-  console.log(currentScores)
+  console.log(currentScores);
 
   // add new score to array
-  const newScore = { name: name, score: score }
-  currentScores.push(newScore)
+  const newScore = { name: name, score: score };
+  currentScores.push(newScore);
 
   localStorage.setItem("score", JSON.stringify(currentScores));
 }
 
 function setLeaderboard() {
-  const lb = document.getElementById("leaderboard-container")
+  const lb = document.getElementById("leaderboard-container");
   // delete all children
   while (lb.firstChild) {
     lb.removeChild(lb.firstChild);
@@ -276,25 +279,23 @@ function setLeaderboard() {
 
   // get current scores
   const currentScores = JSON.parse(localStorage.getItem("score"));
-  if(currentScores === null || currentScores.length === 0) {
-    document.getElementById("leaderboard-container").textContent = "No scores yet!"
-    return
-  };
+  if (currentScores === null || currentScores.length === 0) {
+    document.getElementById("leaderboard-container").textContent =
+      "No scores yet!";
+    return;
+  }
 
   // sort scores
   currentScores.sort((a, b) => {
     return b.score - a.score;
-  })
+  });
 
-  currentScores.forEach((item, i)=> {
+  currentScores.forEach((item, i) => {
     const pToAdd = document.createElement("p");
-    pToAdd.textContent = `${i+1}. ${item.name} - ${item.score}`;
-    pToAdd.className = "lb-text"
+    pToAdd.textContent = `${i + 1}. ${item.name} - ${item.score}`;
+    pToAdd.className = "lb-text";
     document.getElementById("leaderboard-container").appendChild(pToAdd);
-  })
-    
-  
-
+  });
 }
 
 document.getElementById("nameInput").addEventListener("input", () => {
