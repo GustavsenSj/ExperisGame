@@ -19,7 +19,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(463px, -82px);
-  height: 450px;
+  height: 420px;
   position: absolute;
 }
 
@@ -47,11 +47,11 @@ img {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  width: 350px;
+  width: 300px;
   aspect-ratio: 1/1;
   top: 50%;
   left: 50%;
-  transform: translate(-730px, -400px);
+  transform: translate(-700px, -370px);
   position: absolute;
   > * {
     position: absolute;

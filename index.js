@@ -22,11 +22,11 @@ const radiusIncrement = 15;
 let isStarted = false;
 let score = 0;
 let currentCircle = null;
-const spawnY = app.screen.height - 870;
+const spawnY = app.screen.height - 670;
 
 let nextCircle = null;
 
-const nextOrbX = app.screen.width / 2 + 500;
+const nextOrbX = app.screen.width / 2 + 535;
 const nextOrbY = app.screen.height / 2 - 200;
 
 updateScore();
@@ -187,7 +187,7 @@ document.getElementsByTagName("canvas")[0].addEventListener("click", (e) => {
   nextCircle = CreateCircle(
     app,
     radius,
-    nextOrbX + radius,
+    nextOrbX,
     nextOrbY,
     GetImgFromRadius(radius)
   );
@@ -218,7 +218,7 @@ startBtn.addEventListener("click", (e) => {
 
   radius = radiusList[Math.floor(Math.random() * radiusList.length)];
   img = GetImgFromRadius(radius);
-  nextCircle = CreateCircle(app, radius, nextOrbX + radius, nextOrbY, img);
+  nextCircle = CreateCircle(app, radius, nextOrbX, nextOrbY, img);
 });
 
 app.view.addEventListener("mousemove", (e) => {
