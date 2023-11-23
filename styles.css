@@ -141,9 +141,9 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-750px, -20px);
+  transform: translate(-715px, -20px);
   background-color: white;
-  height: 500px;
+  height: 300px;
   width: 400px;
   border: none;
   border-radius: 10px;
@@ -154,23 +154,26 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  overflow-y: scroll;
 }
 
 .lb-text {
+  font-size: 1rem;
   text-align: start;
   width: 100%;
 }
 
 .lb-text:nth-child(1) {
-  font-size: 3rem;
+  font-size: 1.7rem;
   /* color: rgb(247, 217, 48); */
   color: #fbe057;
 }
 .lb-text:nth-child(2) {
-  font-size: 2.5rem;
+  font-size: 1.4rem;
   color: #9cd1ff;
 }
 .lb-text:nth-child(3) {
-  font-size: 2rem;
+  font-size: 1.1rem;
   color: #d17f00;
 }
