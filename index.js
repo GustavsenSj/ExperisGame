@@ -17,8 +17,8 @@ const startBtn = document.getElementById("btn-start");
 const inputFeild = document.getElementById("nameInput");
 const startContainer = document.getElementById("startContainer");
 
-const radiusList = [20, 35, 50, 65];
-const radiusIncrement = 15;
+const radiusList = [20, 32, 44, 56];
+const radiusIncrement = 12;
 let isStarted = false;
 let score = 0;
 let currentCircle = null;
